@@ -26,9 +26,10 @@ export const getTask = async (req, res) => {
 };
 
 export const updateTask = async (req, res) => {
-  const task = await Task.findByIdAndUpdate(req.params.id, req.dody, {
+  const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
+  console.log("paso")
   if (!task) return res.status(400).json({ message: "Task not update" });
   res.json(task);
 };
@@ -36,5 +37,5 @@ export const updateTask = async (req, res) => {
 export const deleteask = async (req, res) => {
   const task = await Task.findByIdAndDelete(req.params.id);
   if (!task) return res.status(400).json({ message: "Task not delete" });
-  res.json(task);
+  return res.status(204);
 };
