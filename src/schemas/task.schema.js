@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const createScherma = z.object({
+export const createSchema = z.object({
     title: z.string({
         required_error: "Title is Requiered",
     }),
